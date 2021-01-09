@@ -31,6 +31,6 @@
     4. Visualization: Plotly visulation with important charts and figures
     
 ## Team: 3-purple
-    - Michelle Nguyen
-    - Sabrina Saleh
+   - Michelle Nguyen
+   - Sabrina Saleh
     
