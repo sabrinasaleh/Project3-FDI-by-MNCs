@@ -1,11 +1,13 @@
 # **Prediction of Foreign Direct Investment (FDI) in USA**
 
 ## ML Project Goal
-* Develop an app based on the machine learning model for predicting the FDI by multinational corporations (MNCs) given the relevant features/factors of the investing countries. 
+* Develop an app based on machine learning model for predicting the FDI in USA by multinational corporations (MNCs)
+* Utilize relevant features/factors of the investing countries in designing the model prediction 
 
 ## Variables, Measures, & Dataset 
 * Time-Series Data Analysis for 30 Years
     - Year 1990 - Year 2019
+    - Potential data size of 1000 to 1100  
     
 * Dependent Variable: FDI in USA
     - Y: Total Stock of FDI by the investing countries in the USA
