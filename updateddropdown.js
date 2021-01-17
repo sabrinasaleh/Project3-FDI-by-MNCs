@@ -1,69 +1,201 @@
-class DropDown {
+"use strict";
 
-    constructor(data){
-        this.data = data;
-        this.targets = [];
-    }
+function _instanceof(left, right) {
+  if (
+    right != null &&
+    typeof Symbol !== "undefined" &&
+    right[Symbol.hasInstance]
+  ) {
+    return !!right[Symbol.hasInstance](left);
+  } else {
+    return left instanceof right;
+  }
+}
 
-    filterData(filtersAsArray){
-        return this.data.filter(r => filtersAsArray.every((item, i) => item === r[i]));
-    }
+function _toConsumableArray(arr) {
+  return (
+    _arrayWithoutHoles(arr) ||
+    _iterableToArray(arr) ||
+    _unsupportedIterableToArray(arr) ||
+    _nonIterableSpread()
+  );
+}
 
-    getUniqueValues(dataAsArray,index){
-        const uniqueOptions = new Set();
-        dataAsArray.forEach(r => uniqueOptions.add(r[index]));
-        return [...uniqueOptions];
-    }
+function _nonIterableSpread() {
+  throw new TypeError(
+    "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+  );
+}
 
-    populateDropDown(el,listAsArray){
-        el.innerHTML = "";
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+    return _arrayLikeToArray(o, minLen);
+}
 
-        listAsArray.forEach(item => {
-            const option = document.createElement("option");
-            option.textContent = item;
-            el.appendChild(option);
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter))
+    return Array.from(iter);
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+  return arr2;
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!_instanceof(instance, Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+var DropDown = /*#__PURE__*/ (function () {
+  function DropDown(data) {
+    _classCallCheck(this, DropDown);
+
+    this.data = data;
+    this.targets = [];
+  }
+
+  _createClass(DropDown, [
+    {
+      key: "filterData",
+      value: function filterData(filtersAsArray) {
+        return this.data.filter(function (r) {
+          return filtersAsArray.every(function (item, i) {
+            return item === r[i];
+          });
         });
-    } 
+      }
+    },
+    {
+      key: "getUniqueValues",
+      value: function getUniqueValues(dataAsArray, index) {
+        var uniqueOptions = new Set();
+        dataAsArray.forEach(function (r) {
+          return uniqueOptions.add(r[index]);
+        });
+        return _toConsumableArray(uniqueOptions);
+      }
+    },
+    {
+      key: "populateDropDown",
+      value: function populateDropDown(el, listAsArray) {
+        el.innerHTML = "";
+        listAsArray.forEach(function (item) {
+          var option = document.createElement("option");
+          option.textContent = item;
+          el.appendChild(option);
+        });
+      }
+    },
+    {
+      key: "createPopulateDropDownFunction",
+      value: function createPopulateDropDownFunction(el, elsDependsOn) {
+        var _this = this;
 
-    createPopulateDropDownFunction(el, elsDependsOn){
-        return () => {
-            const elsDependsOnValues = elsDependsOn.length === 0 ? null : 
-            elsDependsOn.map(depEl => depEl.value);
-            const dataToUse = elsDependsOn.length === 0 ? this.data : 
-            this.filterData(elsDependsOnValues);
-            const listToUse = this.getUniqueValues(dataToUse,elsDependsOn.length);
-            this.populateDropDown(el, listToUse);
-        }
+        return function () {
+          var elsDependsOnValues =
+            elsDependsOn.length === 0
+              ? null
+              : elsDependsOn.map(function (depEl) {
+                  return depEl.value;
+                });
+          var dataToUse =
+            elsDependsOn.length === 0
+              ? _this.data
+              : _this.filterData(elsDependsOnValues);
 
-    }
-    
-    add(options){
+          var listToUse = _this.getUniqueValues(dataToUse, elsDependsOn.length);
+
+          _this.populateDropDown(el, listToUse);
+        };
+      }
+    },
+    {
+      key: "add",
+      value: function add(options) {
         // {target: "level1", dependsOn:[]}
-        const el = document.getElementById(options.target);
-        const elDependsOn = options.dependsOn.length === 0 ? [] : 
-        options.dependsOn.map(id => document.getElementById(id));
-        const eventFunction = this.createPopulateDropDownFunction(el, elsDependsOn);
-        const targetObject = {el:el, elsDependsOn: elsDependsOn, func: eventFunction};
-        targetObject.elsDependsOn.forEach(depEl => depEl.addEventListener("change",eventFunction));
+        var el = document.getElementById(options.target);
+        var elDependsOn =
+          options.dependsOn.length === 0
+            ? []
+            : options.dependsOn.map(function (id) {
+                return document.getElementById(id);
+              });
+        var eventFunction = this.createPopulateDropDownFunction(
+          el,
+          elsDependsOn
+        );
+        var targetObject = {
+          el: el,
+          elsDependsOn: elsDependsOn,
+          func: eventFunction
+        };
+        targetObject.elsDependsOn.forEach(function (depEl) {
+          return depEl.addEventListener("change", eventFunction);
+        });
         this.targets.push(targetObject);
         return this;
-    }
-
-    initialize(){
-        this.targets.forEach(t => t.func());
+      }
+    },
+    {
+      key: "initialize",
+      value: function initialize() {
+        this.targets.forEach(function (t) {
+          return t.func();
+        });
         return this;
-    }
+      }
+    },
+    {
+      key: "eazyDropDown",
+      value: function eazyDropDown(arrayOfIds) {
+        var _this2 = this;
 
-    eazyDropDown(arrayOfIds){
-        arrayOfIds.forEach((item,i) => {
-            const option = {target: item, dependsOn: arrayOfIds.slice(0,i)};
-            this.add(option);
+        arrayOfIds.forEach(function (item, i) {
+          var option = {
+            target: item,
+            dependsOn: arrayOfIds.slice(0, i)
+          };
+
+          _this2.add(option);
         });
         this.initialize();
         return this;
+      }
     }
+  ]);
 
-}
+  return DropDown;
+})();
 
 var myData = [
     ["Europe","United Kingdom","1990"],
@@ -339,15 +471,7 @@ var myData = [
 
 ];
 
-// var dd = new Dropdown(myData);
-//     .add({target: "level1", dependsOn:[] })
-//     .add({target: "level2", dependsOn:["level1"] })
-//     .add({target: "level3", dependsOn:["level1", "level2"] })
-//     .initialize();
-
 var dd = new DropDown(myData).eazyDropDown(["level1","level2","level3"] );
-
-
 
 var geoData = [
     ["Asia","Japan","2018"],
@@ -356,12 +480,5 @@ var geoData = [
     ["Americas","Canada","1991"],
 
 ];
-
-// var dd2 = new Dropdown(geoData);
-// dd2.add({target: "t1", dependsOn:[] });
-// dd2.add({target: "t2", dependsOn:["t1"] });
-// dd2.add({target: "t3", dependsOn:["t1", "t2"] });
-// dd2.add({target: "t4", dependsOn:["t1", "t2", "t3"] });
-// dd2.initialize();
 
 var dd2 = new DropDown(geoData).eazyDropDown(["t1","t2","t3", "t4"]);
