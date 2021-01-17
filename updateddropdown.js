@@ -26,7 +26,13 @@ class DropDown {
         });
     } 
 
-    populateDropDownFunction(el, elsDependsOn){
+    createPopulateDropDownFunction(el, elsDependsOn){
+        return () => {
+            const elsDependsOnValues = elsDependsOn.map(depEl => depEl.value);
+            const dataToUse = this.filterData(elsDependsOnValues);
+            const listToUse = this.getUniqueValues(dataToUse,elsDependsOn.length);
+            this.populateDropDown(el, listToUse);
+        }
 
     }
     
@@ -34,8 +40,19 @@ class DropDown {
         // {target: "level2", dependsOn:["level1"]}
         const el = document.getElementById(options.target);
         const elDependsOn = options.dependsOn.map(id => document.getElementById(id));
-
+        const eventFunction = this.createPopulateDropDownFunction(el, elsDependsOn);
+        const targetObject = {el:el, elsDependsOn: elsDependsOn, func: eventFunction};
+        targetObject.elsDependsOn.forEach(depEl => depEl.addEventListener("change",eventFunction));
+        this.targets.push(targetObject);
+        return this;
     }
+
+    initialize(){
+        this.targets.forEach(t => t.func());
+        return this;
+    }
+
+
 }
 
 
@@ -314,6 +331,10 @@ var myData = [
 ];
 
 
-// var dd = new makeDropdown(myData);
-// dd.add({target: "level3", dependsOn:["level1", "level2"] })
-// dd.add({target: "level2", dependsOn:["level1"] });
+// var dd = new Dropdown(myData);
+// .add({target: "level1", dependsOn:[] })
+// .add({target: "level2", dependsOn:["level1"] })
+// .add({target: "level3", dependsOn:["level1", "level2"] })
+// .initialize();
+
+var dd = new DropDown(myData).easyDropDown (["level1","level2", "level3"] );
