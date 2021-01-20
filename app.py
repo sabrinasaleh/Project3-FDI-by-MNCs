@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect, desc
 import numpy as np
 
-engine = create_engine("sqlite:///.sqlite")
+engine = create_engine("")
 conn = engine.connect()
 
 # reflect an existing database into a new model
@@ -26,25 +26,25 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hello, world!"
+    return ""
 
 
-@app.route("/api/v1.0/precipitation")
+@app.route("/api/v1.0/")
 def date():
     return ""
 
 
-@app.route("/api/v1.0/stations")
+@app.route("/api/v1.0/")
 def stations():
     return ""
 
 
-@app.route("/api/v1.0/tobs")
+@app.route("/api/v1.0/")
 def tobs():
     return jsonify(
         {
             tobs = session.query(Measure.tobs).\
-filter(Measure.station == "USC00519281").\
+filter(Measure.station == "").\
 filter(Measure.date >= query_year).all()
         }
     )
