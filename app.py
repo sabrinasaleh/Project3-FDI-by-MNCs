@@ -134,10 +134,10 @@ def fdi_prediction():
         prediction_content = fdi_prediction
         # here is where we will generate the prediction and plotly plot 
         title = "Predicted FDI"
-        return render_template("predictions.html", prediction_content=prediction_content, title=title)
+        return render_template("predictions.html", prediction_content=prediction_content, title=title, region_list=region_list)
     else:
         title = "Select your prediction"
-        return render_template("predictions.html", title=title)
+        return render_template("predictions.html", title=title, region_list=region_list)
     
     # jsonify({
     #     "year": year,

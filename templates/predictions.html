@@ -10,6 +10,9 @@
     <form action="" method="post">
        
         <select id="level1" name="region_id"></select>
+            {% for region in region_list %} 
+                <option>{{region}}</option> 
+            {% endfor %} 
         <select id="level2" name="country_id"></select>
         <select id="level3" name="year"></select>
         <input type="submit" value="Get Prediction"></input>
@@ -22,7 +25,7 @@
         
 
 
-        <script src="../static/js/updateddropdown.js"></script>
+        <!-- <script src="../static/js/updateddropdown.js"></script> -->
         <script src="../static/drop_down.json"></script>
         <script src="../static/js/plotly.js"></script>
         <script src="../static/full_data.json"></script>
