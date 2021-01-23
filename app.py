@@ -59,6 +59,38 @@ def prediction():
         "fdi_prediction": fdi_prediction
     })
 
+
+@app.route("/fdi_prediction", methods=["GET"])
+def fdi_prediction():
+    data_dict = request.get_json()
+
+    year = data_dict["year"]
+    country_id = data_dict["country_id"] 
+    region_id = data_dict["region_id"]
+    globalization_100 = data_dict["globalization_100"]
+    input_df = pd.DataFrame(
+        {
+            "year": [year],
+            "country_id": [country_id],
+            "region_id": [region_id],
+            "globalization_100": [globalization_100],
+        }
+    )
+
+    fdi_prediction = model.predict(input_df)[0]
+
+    # fdi_prediction = predict_fdi_inflow(year, country_id, region_id, globalization_100)  
+
+    return render_template("predictions.html")
+    
+    # jsonify({
+    #     "year": year,
+    #     "country_id": country_id, 
+    #     "region_id": region_id,
+    #     "globalization_100": globalization_100, 
+    #     "fdi_prediction": fdi_prediction
+    # })
+
 # Questions for "prediction" route:
 ## How to connect "model.joblib" and "full_data.json"/"drop_down.json" to assign the value of Xs and give fdi prediction?
 ## How to connect the "drop-down javascript" of regions, countries, and year to give fdi prection for the selection?
