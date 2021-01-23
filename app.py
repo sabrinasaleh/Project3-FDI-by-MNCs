@@ -18,10 +18,10 @@ def index():
     return render_template("index.html", title="FDI in the US")
 
 
-@app.route("/test")
-def index():
-    # return "App is Up"
-    return render_template("index.html", title="Testing the route")
+@app.route("/test/<variable>")
+def index_test(variable):
+    title=variable+" my variable"
+    return render_template("index.html", title=title)
 
 
 
