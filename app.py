@@ -57,6 +57,8 @@ globalization_dict = {"United Kingdom": 89,
 "Liberia": 48
 }
 
+country_list = globalization_dict.keys()
+
 def predict_y(data_dict):
 
     year = data_dict["year"]
@@ -134,10 +136,14 @@ def fdi_prediction():
         prediction_content = fdi_prediction
         # here is where we will generate the prediction and plotly plot 
         title = "Predicted FDI"
-        return render_template("predictions.html", prediction_content=prediction_content, title=title, region_list=region_list)
+        return render_template("predictions.html", prediction_content=prediction_content, title=title, region_list=region_list, country_list=country_list, placeholder_values=data_dict)
     else:
         title = "Select your prediction"
-        return render_template("predictions.html", title=title, region_list=region_list)
+        placeholders = {"year": 2019,
+                        "country_id": "Select a country", 
+                        "region_id": "Select a region"}
+
+        return render_template("predictions.html", title=title, region_list=region_list, country_list=country_list, placeholder_values=placeholders)
     
     # jsonify({
     #     "year": year,

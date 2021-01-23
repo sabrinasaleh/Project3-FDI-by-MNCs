@@ -10,6 +10,7 @@
     <form action="" method="post">
        
         <select id="level1" name="region_id"></select>
+            <option>{{ placeholder_values['region_id'] }}</option>
             {% for region in region_list %} 
                 <option>{{region}}</option> 
             {% endfor %} 
