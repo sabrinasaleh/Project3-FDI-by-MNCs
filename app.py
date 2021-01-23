@@ -10,7 +10,7 @@ model = joblib.load("Artifacts/model.joblib")
 #     model_input = [year, country_id, region_id, globalization_100]
 #     return model.predict([model_input])[0]
 
-def predict_y(data_dict)
+def predict_y(data_dict):
 
     year = data_dict["year"]
     country_id = data_dict["country_id"] 
@@ -66,13 +66,17 @@ def prediction():
 
 @app.route("/fdi_prediction", methods=["GET", "POST"])
 def fdi_prediction():
-    if methods == "POST"
-        data_dict = requests.form
+    if request.method == "POST":
+        data_dict = request.form
         print(data_dict)
         fdi_prediction = predict_y(data_dict)
-        return render_template("predictions.html", prediction_content=prediction_content)
+        prediction_content = fdi_prediction
+        # here is where we will generate the prediction and plotly plot 
+        title = "Predicted FDI"
+        return render_template("predictions.html", prediction_content=prediction_content, title=title)
     else:
-        return render_template("predictions.html")
+        title = "Select your prediction"
+        return render_template("predictions.html", title=title)
     
     # jsonify({
     #     "year": year,
