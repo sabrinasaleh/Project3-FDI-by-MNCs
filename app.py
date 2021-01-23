@@ -12,9 +12,16 @@ model = joblib.load("Artifacts/model.joblib")
 
 
 @app.route("/")
+@app.route("/index")
 def index():
     # return "App is Up"
-    return render_template("index.html")
+    return render_template("index.html", title="FDI in the US")
+
+
+@app.route("/test")
+def index():
+    # return "App is Up"
+    return render_template("index.html", title="Testing the route")
 
 
 
