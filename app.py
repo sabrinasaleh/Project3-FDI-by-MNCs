@@ -10,6 +10,24 @@ model = joblib.load("Artifacts/model.joblib")
 #     model_input = [year, country_id, region_id, globalization_100]
 #     return model.predict([model_input])[0]
 
+def predict_y(data_dict)
+
+    year = data_dict["year"]
+    country_id = data_dict["country_id"] 
+    region_id = data_dict["region_id"]
+    globalization_100 = data_dict["globalization_100"]
+    input_df = pd.DataFrame(
+        {
+            "year": [year],
+            "country_id": [country_id],
+            "region_id": [region_id],
+            "globalization_100": [globalization_100],
+        }
+    )
+
+    fdi_prediction = model.predict(input_df)[0]
+    return fdi_prediction
+
 
 @app.route("/")
 @app.route("/index")
@@ -33,21 +51,7 @@ def model_analysis():
 @app.route("/prediction", methods=["POST"])
 def prediction():
     data_dict = request.get_json()
-
-    year = data_dict["year"]
-    country_id = data_dict["country_id"] 
-    region_id = data_dict["region_id"]
-    globalization_100 = data_dict["globalization_100"]
-    input_df = pd.DataFrame(
-        {
-            "year": [year],
-            "country_id": [country_id],
-            "region_id": [region_id],
-            "globalization_100": [globalization_100],
-        }
-    )
-
-    fdi_prediction = model.predict(input_df)[0]
+    fdi_prediction = predict_y(data_dict)
 
     # fdi_prediction = predict_fdi_inflow(year, country_id, region_id, globalization_100)  
 
@@ -60,28 +64,15 @@ def prediction():
     })
 
 
-@app.route("/fdi_prediction", methods=["GET"])
+@app.route("/fdi_prediction", methods=["GET", "POST"])
 def fdi_prediction():
-    data_dict = request.get_json()
-
-    year = data_dict["year"]
-    country_id = data_dict["country_id"] 
-    region_id = data_dict["region_id"]
-    globalization_100 = data_dict["globalization_100"]
-    input_df = pd.DataFrame(
-        {
-            "year": [year],
-            "country_id": [country_id],
-            "region_id": [region_id],
-            "globalization_100": [globalization_100],
-        }
-    )
-
-    fdi_prediction = model.predict(input_df)[0]
-
-    # fdi_prediction = predict_fdi_inflow(year, country_id, region_id, globalization_100)  
-
-    return render_template("predictions.html")
+    if methods == "POST"
+        data_dict = requests.form
+        print(data_dict)
+        fdi_prediction = predict_y(data_dict)
+        return render_template("predictions.html", prediction_content=prediction_content)
+    else:
+        return render_template("predictions.html")
     
     # jsonify({
     #     "year": year,
