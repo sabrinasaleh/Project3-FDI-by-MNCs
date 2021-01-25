@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import pandas as pd
 import joblib
 
+# app = Flask(__name__, static_folder='static')
 app = Flask(__name__)
 
 model = joblib.load("Artifacts/model.joblib")
