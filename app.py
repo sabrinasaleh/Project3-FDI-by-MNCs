@@ -56,8 +56,9 @@ globalization_dict = {"United Kingdom": 89,
 "South Africa": 71,
 "Liberia": 48
 }
-
+region_list = ["Europe", "Canada & Pacific", "Asia", "Latin America", "Africa"]
 country_list = globalization_dict.keys()
+year_list = [2019]
 
 def predict_y(data_dict):
 
@@ -82,19 +83,19 @@ def predict_y(data_dict):
 @app.route("/index")
 def index():
     # return "App is Up"
-    return render_template("index.html", title="FDI in the US")
+    return render_template("index.html", title="FDI by MNCs")
 
 
-@app.route("/test/<variable>")
-def index_test(variable):
-    title=variable+" my variable"
-    return render_template("index.html", title=title)
+# @app.route("/test/<variable>")
+# def index_test(variable):
+#     title=variable+" my variable"
+#     return render_template("index.html", title=title)
 
 
 
 @app.route("/model_analysis")
 def model_analysis():
-    return render_template("model_analysis.html")
+    return render_template("model_analysis.html", title="ML Modeling")
 
 
 @app.route("/prediction", methods=["POST"])
@@ -135,13 +136,14 @@ def fdi_prediction():
         fdi_prediction = predict_y(data_dict)
         prediction_content = fdi_prediction
         # here is where we will generate the prediction and plotly plot 
-        title = "Predicted FDI"
+        title = "FDI Prediction"
         return render_template("predictions.html", prediction_content=prediction_content, title=title, region_list=region_list, country_list=country_list, placeholder_values=data_dict)
     else:
-        title = "Select your prediction"
-        placeholders = {"year": 2019,
-                        "country_id": "Select a country", 
-                        "region_id": "Select a region"}
+        title = "Selection Options"
+        placeholders = {"region_id": "Select a region",
+                        "country_id": "Select a country",
+                        "year": "Recent year for prediction" 
+                        }
 
         return render_template("predictions.html", title=title, region_list=region_list, country_list=country_list, placeholder_values=placeholders)
     
@@ -163,7 +165,7 @@ def fdi_prediction():
 
 @app.route("/observations_insights")
 def observations_insights():
-    return render_template("observations_insights.html")
+    return render_template("observations_insights.html", title="Observations & Insights")
 
 
 if __name__ == "__main__":

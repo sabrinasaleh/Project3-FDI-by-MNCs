@@ -1,28 +1,51 @@
-<!DOCTYPE html>
+{% extends "parent.html" %}
+
+{% block content %}
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
 </head>
-<body>
+<body> -->
+
+    <div>
+        <p>In this app we will go through a series of years of foreign investment in the United States starting from 1990 to 2018.
+            Who are the largest foreign investors in the United States?</p>
+    </div>
 
     <form action="" method="post">
        
-        <select id="level1" name="region_id"></select>
+        <select id="level1" name="region_id">
             <option>{{ placeholder_values['region_id'] }}</option>
             {% for region in region_list %} 
                 <option>{{region}}</option> 
-            {% endfor %} 
-        <select id="level2" name="country_id"></select>
-        <select id="level3" name="year"></select>
+            {% endfor %}
+        </select> 
+            <select id="level2" name="country_id">
+            <option>{{ placeholder_values['country_id'] }}</option>
+                {% for country in country_list %} 
+                <option>{{country}}</option> 
+            {% endfor %}
+            </select>
+            <select id="level3" name="year">
+                <option>{{ placeholder_values['year'] }}</option>
+                {% for year in year_list %} 
+                <option>{{year}}</option> 
+                {% endfor %}
+                </select>
+    
+        <!-- <select id="level2" name="country_id"></select>
+        <select id="level3" name="year"></select> -->
         <input type="submit" value="Get Prediction"></input>
 
     </form>
 
 
 
-        <div id="predictions_content_box"> {{ prediction_content }} </div>
+        <div id="predictions_content_box"> $ {{ prediction_content }} (million) </div>
         
 
 
@@ -31,5 +54,5 @@
         <script src="../static/js/plotly.js"></script>
         <script src="../static/full_data.json"></script>
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
-</body>
-</html>
+
+        {% endblock %}
