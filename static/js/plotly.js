@@ -1,6 +1,7 @@
 // Connect to json data and create initial plots
 function init_build() {
-    d3.json("https://project2-petselect.herokuapp.com/visualization-data").then((data) => {
+    // d3.json("https://project2-petselect.herokuapp.com/visualization-data").then((data) => {
+    d3.json("full_data.json").then((data) => {
             // Extract list of breed from json data
             var breed_data = data[0].primary_breed;
             console.log(breed_data);
