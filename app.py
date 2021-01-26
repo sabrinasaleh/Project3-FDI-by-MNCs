@@ -147,20 +147,22 @@ def fdi_prediction():
 
         return render_template("predictions.html", title=title, region_list=region_list, country_list=country_list, placeholder_values=placeholders)
     
-    # jsonify({
-    #     "year": year,
-    #     "country_id": country_id, 
-    #     "region_id": region_id,
-    #     "globalization_100": globalization_100, 
-    #     "fdi_prediction": fdi_prediction
-    # })
 
-# Questions for "prediction" route:
-## How to connect "model.joblib" and "full_data.json"/"drop_down.json" to assign the value of Xs and give fdi prediction?
-## How to connect the "drop-down javascript" of regions, countries, and year to give fdi prection for the selection?
-## How to connect the "plotly-plot javascript" - specific plot for the selected country and one common global map? 
+@app.route("/visualization-data")
+def visualization_data():
+    data_list = []
+    with open("static/pet_select.json") as file:
+        data = json.load(file)
+        for i in data:
+            data_list.append({key: value for key, value in i.items()})
+        data_json = jsonify(data_list)
+        print(type(data_json))
+        file.close()
 
-## How to do "return render_template("predictions.html")? 
+        return data_json
+    
+
+ 
 
 
 @app.route("/observations_insights")
@@ -170,3 +172,11 @@ def observations_insights():
 
 if __name__ == "__main__":
         app.run(debug=True)
+
+
+# Questions for "prediction" route:
+## How to connect "model.joblib" and "full_data.json"/"drop_down.json" to assign the value of Xs and give fdi prediction?
+## How to connect the "drop-down javascript" of regions, countries, and year to give fdi prection for the selection?
+## How to connect the "plotly-plot javascript" - specific plot for the selected country and one common global map? 
+
+## How to do "return render_template("predictions.html")?
