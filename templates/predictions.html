@@ -1,21 +1,72 @@
-<!DOCTYPE html>
+{% extends "parent.html" %}
+
+{% block content %}
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regions</title>
+    <title>{{title}}</title>
 </head>
-<body>
-        <select id="level1"></select>
-        <select id="level2"></select>
-        <select id="level3"></select>
+<body> -->
+
+    <div>
+        <p>In this app we will go through a series of years of foreign investment in the United States starting from 1990 to 2018.
+            Who are the largest foreign investors in the United States?</p>
+    </div>
+
+    <form action="" method="post">
+       
+        <select id="level1" name="region_id">
+            <option>{{ placeholder_values['region_id'] }}</option>
+            {% for region in region_list %} 
+                <option>{{region}}</option> 
+            {% endfor %}
+        </select> 
+            <select id="level2" name="country_id">
+            <option>{{ placeholder_values['country_id'] }}</option>
+                {% for country in country_list %} 
+                <option>{{country}}</option> 
+            {% endfor %}
+            </select>
+            <select id="level3" name="year"> 
+                <!-- <option>2019</option> -->
+                <option>{{ placeholder_values['year'] }}</option> 
+                {% for year in year_list %} 
+                <option>{{year}}</option>  
+                {% endfor %}  -->
+                </select> 
+    
+       
+        <input type="submit" value="Get FDI Prediction"></input>
+
+    </form>
+
+
+        <div id="predictions_content_box"> $ {{ prediction_content }} (million) </div>
+
+        <br>
         
+                  
+          <div class='plot'>
+            <div id="plotUnitedKingdom">
+            </div>
+          </div>
 
 
-        <script src="assets/js/updateddropdown.js"></script>
-        <script src="drop_down.json"></script>
-        <script src="assets/js/plotly.js"></script>
-        <script src="full_data.json"></script>
+        <script src="../static/js/plotly.js"></script>
+        <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
-</body>
-</html>
+
+
+
+        <!-- <script src="../static/js/updateddropdown.js"></script> -->
+        <!-- <script src="../static/drop_down.json"></script> -->        
+        <!-- <script src="../static/js/full_data.json"></script> -->       
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script> -->
+
+    <!-- </body>
+</html> -->
+
+        {% endblock %}
