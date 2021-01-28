@@ -7,9 +7,10 @@ verify_ssl = true
 
 [packages]
 flask = "*"
+pandas = "*"
 scikit-learn = "==0.23.1"
 joblib = "==0.16.0"
-pandas = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
