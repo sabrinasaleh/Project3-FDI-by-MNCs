@@ -22,7 +22,7 @@ var data = [
     let unique_countries = [...new Set(countries)]
     console.log(unique_countries);
 
-// plot for UK
+// 1. plot for UK
     let filter_UK = data.filter(d => d.countries == "United Kingdom")
     console.log(filter_UK);    
 
@@ -57,10 +57,689 @@ var data = [
         }
         
     Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+
+// 2. plot for Austria
+    let filter_Austria = data.filter(d => d.countries == "Austria")
+    console.log(filter_Austria);    
+
+    let x_year = filter_Austria.map(d => d.year);
+    console.log(x_year);
+
+    let y_fdi = filter_Austria.map(d => d.fdi_in_usa_million);
+    console.log(y_fdi);
+
+    var traceUK = {
+        x: x_year,
+        y: y_fdi,        
+        type: 'bar'
+    };
+
+    var dataAustria = [traceAustria]
+
+    var layoutAustria = {
+        title: 'Investment by British MNCs',
+        titlefont: {color: 'red'}, 
+        xaxis: {
+            automargin: true,            
+            title: {
+              text: "Year (1982-2019)",            
+            }},
+        yaxis: {
+            automargin: true,           
+            title: {
+              text: "FDI ($ million)",
+              standoff: 10             
+            }}
+        }
         
+    Plotly.newPlot("plotAustria", dataAustria, layoutAustria)
+
+// 3. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 4. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+   
+// 5. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
 
     
-     
+// 6. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
 
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
     
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+ 
+// 7. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
 
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 8. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 9. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 10. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 11. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 12. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 13. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 14. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 15. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 16. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 17. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 18. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 19. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
+
+// 20. plot for Austria
+let filter_UK = data.filter(d => d.countries == "United Kingdom")
+console.log(filter_UK);    
+
+let x_year = filter_UK.map(d => d.year);
+console.log(x_year);
+
+let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
+console.log(y_fdi);
+
+var traceUK = {
+    x: x_year,
+    y: y_fdi,        
+    type: 'bar'
+};
+
+var dataUK = [traceUK]
+
+var layoutUK = {
+    title: 'Investment by British MNCs',
+    titlefont: {color: 'red'}, 
+    xaxis: {
+        automargin: true,            
+        title: {
+          text: "Year (1982-2019)",            
+        }},
+    yaxis: {
+        automargin: true,           
+        title: {
+          text: "FDI ($ million)",
+          standoff: 10             
+        }}
+    }
+    
+Plotly.newPlot("plotUnitedKingdom", dataUK, layoutUK)
