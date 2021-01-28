@@ -26,15 +26,15 @@ var data = [
     let filter_UK = data.filter(d => d.countries == "United Kingdom")
     console.log(filter_UK);    
 
-    let x_year = filter_UK.map(d => d.year);
-    console.log(x_year);
+    let x_uk = filter_UK.map(d => d.year);
+    console.log(x_uk);
 
-    let y_fdi = filter_UK.map(d => d.fdi_in_usa_million);
-    console.log(y_fdi);
+    let y_uk = filter_UK.map(d => d.fdi_in_usa_million);
+    console.log(y_uk);
 
     var traceUK = {
-        x: x_year,
-        y: y_fdi,        
+        x: x_uk,
+        y: y_uk,        
         type: 'bar'
     };
 
@@ -46,7 +46,7 @@ var data = [
         xaxis: {
             automargin: true,            
             title: {
-              text: "Year (1982-2019)",            
+              text: "Years (1982-2019)",            
             }},
         yaxis: {
             automargin: true,           
@@ -63,27 +63,27 @@ var data = [
     let filter_Austria = data.filter(d => d.countries == "Austria")
     console.log(filter_Austria);    
 
-    let x_year = filter_Austria.map(d => d.year);
+    let x_austria = filter_Austria.map(d => d.year);
     console.log(x_year);
 
-    let y_fdi = filter_Austria.map(d => d.fdi_in_usa_million);
+    let y_austria = filter_Austria.map(d => d.fdi_in_usa_million);
     console.log(y_fdi);
 
-    var traceUK = {
-        x: x_year,
-        y: y_fdi,        
+    var traceAustria = {
+        x: x_Austria,
+        y: y_Austria,        
         type: 'bar'
     };
 
     var dataAustria = [traceAustria]
 
     var layoutAustria = {
-        title: 'Investment by British MNCs',
+        title: 'Investment by Austrian MNCs',
         titlefont: {color: 'red'}, 
         xaxis: {
             automargin: true,            
             title: {
-              text: "Year (1982-2019)",            
+              text: "Years (1982-2019)",            
             }},
         yaxis: {
             automargin: true,           
