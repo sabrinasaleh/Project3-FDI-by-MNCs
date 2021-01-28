@@ -64,10 +64,10 @@ var data = [
     console.log(filter_Austria);    
 
     let x_austria = filter_Austria.map(d => d.year);
-    console.log(x_year);
+    console.log(x_austria);
 
     let y_austria = filter_Austria.map(d => d.fdi_in_usa_million);
-    console.log(y_fdi);
+    console.log(y_austria);
 
     var traceAustria = {
         x: x_Austria,
