@@ -137,7 +137,7 @@ def get_country_data():
 
     input_country = input_dict["country"]
 
-    with open(os.path.join("static/full_data.json"), "r") as in_file:
+    with open(os.path.join("static/js/full_data.json"), "r") as in_file:
         data = in_file.read()
         data_list = json.loads(data)
     
