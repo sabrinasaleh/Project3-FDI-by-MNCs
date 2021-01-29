@@ -8,7 +8,52 @@
         //   var breed_data_clean = Object.values(breed_data);
         //   console.log(breed_data_clean);
 
-                                    
+var globalizationList = globalization_dict = {"United Kingdom": 89,
+"Austria": 89,
+"Belgium": 90,
+"Denmark": 88,
+"Finland": 88,
+"France": 88,
+"Germany": 89,
+"Ireland": 86,
+"Italy": 83,
+"Luxembourg": 83,
+"Netherlands": 91,
+"Norway": 85,
+"Portugal": 85,
+"Russia": 72,
+"Spain": 84,
+"Sweden": 89,
+"Switzerland": 91,
+"Greece": 83,
+"Hungary": 84,
+"Turkey": 71,
+"Canada": 84,
+"Australia": 82,
+"New Zealand": 77,
+"Japan": 78,
+"China": 64,
+"Hong Kong": 67,
+"India": 62,
+"Malaysia": 82,
+"Philippines": 67,
+"Singapore": 83,
+"South Korea": 78,
+"Israel": 77,
+"Indonesia": 63,
+"Pakistan": 54,
+"Thailand": 72,
+"Kuwait": 72,
+"United Arab Emirates": 76,
+"Argentina": 71,
+"Brazil": 64,
+"Chile": 76,
+"Mexico": 72,
+"Panama": 71,
+"Venezuela": 52,
+"South Africa": 71,
+"Liberia": 48
+}  
 
 d3.select("input").on("click",
     () => {
@@ -18,24 +63,25 @@ d3.select("input").on("click",
         year = d3.select("#level3").property("value")
 
         // WIP
-        // predict_query = {
-        //     "region_id": region_id,
-        //     // right now country_id is the name
-        //     "country_id": country_id,
-        //     "year": year,
-        //     "globalization_100": ???
-        // }
+        predict_query = {
+            "region_id": region_id,
+            // right now country_id is the name
+            "country_id": country_id,
+            "year": year,
+            "globalization_100": globalizationList[country_id]
+        };
 
-        // d3.json("http://127.0.0.1:5000/predict", {
-        //     method: 'POST',
-        //     headers: {
-        //         "Content-type": "application/json; charset=UTF-8"
-        //     },
-        //     body: JSON.stringify(predict_query)
-        // }
-        // ).then(data => {
-        //     // modify the element that has the prediction
-        // })
+        d3.json("http://127.0.0.1:5000/predict", {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify(predict_query)
+        }
+        ).then(data => {
+            console.log(data)
+            // modify the element that has the prediction
+        })
 
         data_query = {
             "country": country_id
