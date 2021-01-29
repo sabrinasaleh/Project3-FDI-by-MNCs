@@ -8,7 +8,7 @@
         //   var breed_data_clean = Object.values(breed_data);
         //   console.log(breed_data_clean);
 
-var globalizationList = globalization_dict = {"United Kingdom": 89,
+var globalizationList = {"United Kingdom": 89,
 "Austria": 89,
 "Belgium": 90,
 "Denmark": 88,
