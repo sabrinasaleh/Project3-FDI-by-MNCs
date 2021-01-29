@@ -55,6 +55,8 @@ var globalizationList = {"United Kingdom": 89,
 "Liberia": 48
 }  
 
+console.log(globalizationList)
+
 d3.select("input").on("click",
     () => {
 
@@ -71,7 +73,9 @@ d3.select("input").on("click",
             "globalization_100": globalizationList[country_id]
         };
 
-        d3.json("http://127.0.0.1:5000/predict", {
+        console.log(globalizationList[country_id])
+
+        d3.json("http://127.0.0.1:5000/prediction", {
             method: 'POST',
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -80,6 +84,8 @@ d3.select("input").on("click",
         }
         ).then(data => {
             console.log(data)
+            // id=""
+            document.getElementById("predictions_content_box").innerHTML = "$" + data['fdi_prediction'] + " (million)";
             // modify the element that has the prediction
         })
 
@@ -87,7 +93,7 @@ d3.select("input").on("click",
             "country": country_id
         }
 
-        console.log(data_query)
+        // console.log(data_query)
 
         d3.json("http://127.0.0.1:5000/country_data", {
             method: 'POST',
@@ -101,6 +107,45 @@ d3.select("input").on("click",
                 // make the plot restyle
             }
         )
+
+        
+        let filter_country = data.filter(d => d.countries == data_query['country'])
+        console.log("The filter country is");
+        console.log(filter_country);    
+
+        let x_country = filter_country.map(d => d.year);
+        console.log(x_country);
+
+        let y_country = filter_country.map(d => d.fdi_in_usa_million);
+        console.log(y_country);
+
+        var traceCountry = {
+            x: x_country,
+            y: y_country,        
+            type: 'bar'
+        };
+
+        var dataCountry = [traceCountry]
+
+        var layoutCountry = {
+            title: 'Investment by MNCs from ' + data_query['country'],
+            titlefont: {color: 'red'}, 
+            xaxis: {
+                automargin: true,            
+                title: {
+                text: "Years (1982-2019)",            
+                }},
+            yaxis: {
+                automargin: true,           
+                title: {
+                text: "FDI ($ million)",
+                standoff: 10             
+                }}
+            }
+            
+        Plotly.newPlot("plotCountry", dataCountry, layoutCountry)
+
+
     }
 )
 // copy/paste full_data.json
