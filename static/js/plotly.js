@@ -1,13 +1,3 @@
-// // // Connect to json data and create initial plots
-// d3.json("https://project2-petselect.herokuapp.com/visualization-data").then(
-    //   data => {
-          // // // Extract list of breed from json data
-        //   var breed_data = data[0].primary_breed;
-        //   console.log(breed_data);
-
-        //   var breed_data_clean = Object.values(breed_data);
-        //   console.log(breed_data_clean);
-
 var globalizationList = {"United Kingdom": 89,
 "Austria": 89,
 "Belgium": 90,
