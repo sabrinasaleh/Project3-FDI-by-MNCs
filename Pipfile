@@ -10,6 +10,7 @@ flask = "*"
 pandas = "*"
 scikit-learn = "==0.23.1"
 joblib = "==0.16.0"
+gunicorn = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.7"

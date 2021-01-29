@@ -16,7 +16,7 @@
             Who are the largest foreign investors in the United States?</p>
     </div>
 
-    <form action="" method="post">
+    <form action="javascript:void(0);">
        
         <select id="level1" name="region_id">
             <option>{{ placeholder_values['region_id'] }}</option>
@@ -30,34 +30,48 @@
                 <option>{{country}}</option> 
             {% endfor %}
             </select>
-            <select id="level3" name="year">
-                <option>{{ placeholder_values['year'] }}</option>
+            <select id="level3" name="year"> 
+                <!-- <option>2019</option> -->
+                <option>{{ placeholder_values['year'] }}</option> 
                 {% for year in year_list %} 
-                <option>{{year}}</option> 
-                {% endfor %}
-                </select>
+                <option>{{year}}</option>  
+                {% endfor %}  -->
+                </select> 
     
        
-        <input type="submit" value="Get Prediction"></input>
+        <input type="submit" value="Get FDI Prediction"></input>
 
     </form>
 
 
-
         <div id="predictions_content_box"> $ {{ prediction_content }} (million) </div>
+
+        <br>
         
                   
-          <div class='plot'>
-            <div id="PlotUnitedKingdomFdi">
-            </div>
+          <div class='plotUK'>
+            <div id="plotUnitedKingdom"></div>                           
           </div>
 
-        <!-- <script src="../static/js/updateddropdown.js"></script> -->
-        <!-- <script src="../static/drop_down.json"></script> -->
+          <br>
+
+          <div class='plotAus'>
+            <div id="plotAustria"></div>            
+          </div>
+
+         
+
+
         <script src="../static/js/plotly.js"></script>
-        <!-- <script src="../static/js/full_data.json"></script> -->
-        <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+        <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
+
+
+
+        <!-- <script src="../static/js/updateddropdown.js"></script> -->
+        <!-- <script src="../static/drop_down.json"></script> -->        
+        <!-- <script src="../static/js/full_data.json"></script> -->       
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script> -->
 
     <!-- </body>
 </html> -->

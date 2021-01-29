@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, render_template 
 import pandas as pd
 import joblib
+import os
+import json
 
 app = Flask(__name__)
 
@@ -58,7 +60,7 @@ globalization_dict = {"United Kingdom": 89,
 }
 region_list = ["Europe", "Canada & Pacific", "Asia", "Latin America", "Africa"]
 country_list = globalization_dict.keys()
-year_list = [2019]
+year_list = ["2019"]
 
 def predict_y(data_dict):
 
@@ -84,6 +86,7 @@ def predict_y(data_dict):
 def index():
     # return "App is Up"
     return render_template("index.html", title="FDI by MNCs")
+    
 
 
 # @app.route("/test/<variable>")
@@ -127,6 +130,19 @@ def prediction():
         "fdi_prediction": fdi_prediction
     })
 
+@app.route("/country_data", methods=["POST"])
+def get_country_data():
+
+    input_dict = request.get_json()
+
+    input_country = input_dict["country"]
+
+    with open(os.path.join("static/full_data.json"), "r") as in_file:
+        data = in_file.read()
+        data_list = json.loads(data)
+    
+    return jsonify([d for d in data_list if d["countries"] == input_country])
+
 
 @app.route("/fdi_prediction", methods=["GET", "POST"])
 def fdi_prediction():
@@ -137,16 +153,17 @@ def fdi_prediction():
         prediction_content = fdi_prediction
         # here is where we will generate the prediction and plotly plot 
         title = "FDI Prediction"
-        return render_template("predictions.html", prediction_content=prediction_content, title=title, region_list=region_list, country_list=country_list, placeholder_values=data_dict)
+        return render_template("predictions.html", prediction_content=prediction_content, title=title, region_list=region_list, country_list=country_list, year_list=year_list, placeholder_values=data_dict)
     else:
         title = "Selection Options"
         placeholders = {"region_id": "Select a region",
                         "country_id": "Select a country",
-                        "year": "Recent year for prediction" 
+                        "year": "Select recent year" 
                         }
 
-        return render_template("predictions.html", title=title, region_list=region_list, country_list=country_list, placeholder_values=placeholders)
-    
+        return render_template("predictions.html", title=title, region_list=region_list, country_list=country_list, year_list=year_list, placeholder_values=placeholders)
+
+
 
 @app.route("/visualization-data")
 def visualization_data():
