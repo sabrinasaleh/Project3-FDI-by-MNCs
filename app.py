@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, render_template 
 import pandas as pd
 import joblib
+import os
+import json
 
 app = Flask(__name__)
 
@@ -84,6 +86,7 @@ def predict_y(data_dict):
 def index():
     # return "App is Up"
     return render_template("index.html", title="FDI by MNCs")
+    
 
 
 # @app.route("/test/<variable>")
@@ -127,7 +130,20 @@ def prediction():
         "fdi_prediction": fdi_prediction
     })
 
+@app.route("/country_data", methods=["POST"])
+def get_country_data():
 
+    input_dict = request.get_json()
+
+    input_country = input_dict["country"]
+
+    with open(os.path.join("static/js/full_data.json"), "r") as in_file:
+        data = in_file.read()
+        data_list = json.loads(data)
+    
+    return jsonify([d for d in data_list if d["countries"] == input_country])
+
+# Do we need this route?
 @app.route("/fdi_prediction", methods=["GET", "POST"])
 def fdi_prediction():
     if request.method == "POST":
@@ -146,24 +162,8 @@ def fdi_prediction():
                         }
 
         return render_template("predictions.html", title=title, region_list=region_list, country_list=country_list, year_list=year_list, placeholder_values=placeholders)
-    
-
-@app.route("/visualization-data")
-def visualization_data():
-    data_list = []
-    with open("static/pet_select.json") as file:
-        data = json.load(file)
-        for i in data:
-            data_list.append({key: value for key, value in i.items()})
-        data_json = jsonify(data_list)
-        print(type(data_json))
-        file.close()
-
-        return data_json
-    
 
  
-
 
 @app.route("/observations_insights")
 def observations_insights():

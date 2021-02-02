@@ -16,7 +16,7 @@
             Who are the largest foreign investors in the United States?</p>
     </div>
 
-    <form action="" method="post">
+    <form action="javascript:void(0);">
        
         <select id="level1" name="region_id">
             <option>{{ placeholder_values['region_id'] }}</option>
@@ -39,7 +39,8 @@
                 </select> 
     
        
-        <input type="submit" value="Get FDI Prediction"></input>
+        <input type="submit" value="FDI Prediction"></input>
+        <input type="reset" value="Reset Filters"></input>
 
     </form>
 
@@ -47,17 +48,17 @@
         <div id="predictions_content_box"> $ {{ prediction_content }} (million) </div>
 
         <br>
-        
-                  
-          <div class='plot'>
-            <div id="plotUnitedKingdom">
-            </div>
+
+            <div class='plotCountry'>
+            <div id="plotCountry"></div>                           
           </div>
+
+         
 
 
         <script src="../static/js/plotly.js"></script>
-        <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+        <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
 
 
 
