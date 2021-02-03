@@ -1,7 +1,5 @@
 var URI = "https://mnc-fdi-usa.herokuapp.com/"
 
-{"Europe": ["Select a country"
-
 var region_country = {"Select a region": ["Select a country"], 
     "Europe": ["Select a country",
     "Austria",
@@ -60,6 +58,7 @@ var region_country = {"Select a region": ["Select a country"],
         "Liberia",
         "South Africa"                      
         ]}
+        
 var globalizationList = {"United Kingdom": 89,
 "Austria": 89,
 "Belgium": 90,
