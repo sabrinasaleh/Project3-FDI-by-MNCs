@@ -1,5 +1,9 @@
 var URI = "https://mnc-fdi-usa.herokuapp.com/"
-var region_country = {"Europe": ["Select a country",
+
+{"Europe": ["Select a country"
+
+var region_country = {"Select a region": ["Select a country"], 
+    "Europe": ["Select a country",
     "Austria",
     "Belgium",
     "Denmark",
