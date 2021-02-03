@@ -143,9 +143,13 @@ def get_country_data():
     
     return jsonify([d for d in data_list if d["countries"] == input_country])
 
-# Do we need this route?
+
 @app.route("/fdi_prediction", methods=["GET", "POST"])
 def fdi_prediction():
+    placeholders = {"region_id": "Select a region",
+                    "country_id": "Select a country",
+                    "year": "Select recent year" 
+                        }
     if request.method == "POST":
         data_dict = request.form
         print(data_dict)
@@ -153,13 +157,10 @@ def fdi_prediction():
         prediction_content = fdi_prediction
         # here is where we will generate the prediction and plotly plot 
         title = "FDI Prediction"
-        return render_template("predictions.html", prediction_content=prediction_content, title=title, region_list=region_list, country_list=country_list, year_list=year_list, placeholder_values=data_dict)
+        return render_template("predictions.html", prediction_content=prediction_content, title=title, region_list=region_list, country_list=country_list, year_list=year_list, placeholder_values=placeholders)
     else:
         title = "Selection Options"
-        placeholders = {"region_id": "Select a region",
-                        "country_id": "Select a country",
-                        "year": "Select recent year" 
-                        }
+       
 
         return render_template("predictions.html", title=title, region_list=region_list, country_list=country_list, year_list=year_list, placeholder_values=placeholders)
 
