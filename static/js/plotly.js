@@ -99,9 +99,9 @@ var globalizationList = {"United Kingdom": 89,
 }  
 
 function insertRegions() {
-    var regionSelect = document.getElementById(“level1”);
+    var regionSelect = document.getElementById("level1");
     for (var prop in region_country) {
-      var option = document.createElement(‘option’);
+      var option = document.createElement("option");
       option.innerHTML = prop
       option.value = prop;
       regionSelect.append(option)
@@ -117,14 +117,14 @@ function insertRegions() {
   }
 
   function filterCountryDropdown() {
-    var region = document.getElementById(“level1”).value;
+    var region = document.getElementById("level1").value;
     console.log(region);
     var filter = region_country[region];
     console.log(filter);
-    var select = document.getElementById(“level2");
+    var select = document.getElementById("level2");
     delOptions(select)
     for (var prop in filter) {
-      var option = document.createElement(‘option’);
+      var option = document.createElement("option");
       option.innerHTML = filter[prop]
       option.value = filter[prop];
       select.append(option)
