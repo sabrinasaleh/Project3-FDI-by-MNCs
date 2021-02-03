@@ -1,6 +1,6 @@
 var URI = "https://mnc-fdi-usa.herokuapp.com/"
-
-var region_country = {"Europe": ["Austria",
+var region_country = {"Europe": ["Select a country",
+    "Austria",
     "Belgium",
     "Denmark",
     "Finland",
@@ -21,11 +21,14 @@ var region_country = {"Europe": ["Austria",
     "Turkey",
     "United Kingdom",
     ],
-    "Canada & Pacific": ["Australia",
+    "Canada & Pacific": ["Select a country",
+        "Australia",
         "Canada",
         "New Zealand",
-        ], 
-    "Asia": ["China",
+        ],
+    "Asia": [
+        "Select a country",
+        "China",
         "Hong Kong",
         "India",
         "Indonesia",
@@ -38,19 +41,21 @@ var region_country = {"Europe": ["Austria",
         "Singapore",
         "South Korea",
         "Thailand",
-        "United Arab Emirates",        
-        ], 
-    "Latin America": ["Argentina",
+        "United Arab Emirates",       
+        ],
+    "Latin America": [
+        "Select a country",
+        "Argentina",
         "Brazil",
         "Chile",
         "Mexico",
         "Panama",
-        "Venezuela",                
-        ], 
-    "Africa": ["Liberia",
-        "South Africa"                       
-        ]} 
-
+        "Venezuela",               
+        ],
+    "Africa": ["Select a country",
+        "Liberia",
+        "South Africa"                      
+        ]}
 var globalizationList = {"United Kingdom": 89,
 "Austria": 89,
 "Belgium": 90,
@@ -96,8 +101,7 @@ var globalizationList = {"United Kingdom": 89,
 "Venezuela": 52,
 "South Africa": 71,
 "Liberia": 48
-}  
-
+} 
 function insertRegions() {
     var regionSelect = document.getElementById("level1");
     for (var prop in region_country) {
@@ -107,15 +111,12 @@ function insertRegions() {
       regionSelect.append(option)
     }
   }
-
   insertRegions()
-
   function delOptions(selection) {
     while (selection.options.length > 0) {
       selection.remove(0);
     }
   }
-
   function filterCountryDropdown() {
     var region = document.getElementById("level1").value;
     console.log(region);
@@ -130,16 +131,12 @@ function insertRegions() {
       select.append(option)
     }
   }
-
   filterCountryDropdown()
-
 d3.select("input").on("click",
     () => {
-
         region_id = d3.select("#level1").property("value")
         country_id = d3.select("#level2").property("value")
         year = d3.select("#level3").property("value")
-
         // WIP
         predict_query = {
             "region_id": region_id,
@@ -148,9 +145,7 @@ d3.select("input").on("click",
             "year": year,
             "globalization_100": globalizationList[country_id]
         };
-
         console.log(globalizationList[country_id])
-
         d3.json(URI + "prediction", {
             method: 'POST',
             headers: {
@@ -163,13 +158,10 @@ d3.select("input").on("click",
             document.getElementById("predictions_content_box").innerHTML = "$" + data['fdi_prediction'] + " (million)";
             // modify the element that has the prediction
         })
-
         data_query = {
             "country": country_id
         }
-
         // console.log(data_query)
-
         d3.json(URI + "country_data", {
             method: 'POST',
             headers: {
@@ -182,72 +174,49 @@ d3.select("input").on("click",
                 // make the plot restyle
             }
         )
-
-        
         let filter_country = data.filter(d => d.countries == data_query['country'])
-
         let x_country = filter_country.map(d => d.year);
         console.log(x_country);
-
         let y_country = filter_country.map(d => d.fdi_in_usa_million);
         console.log(y_country);
-
         var traceCountry = {
             x: x_country,
-            y: y_country,        
+            y: y_country,       
             type: 'bar'
         };
-
         var dataCountry = [traceCountry]
-
         var layoutCountry = {
             title: 'Investment by MNCs from ' + data_query['country'],
-            titlefont: {color: 'red'}, 
+            titlefont: {color: 'red'},
             xaxis: {
-                automargin: true,            
-                title: {
-                text: "Years (1982-2019)",            
-                }},
-            yaxis: {
                 automargin: true,           
                 title: {
+                text: "Years (1982-2019)",           
+                }},
+            yaxis: {
+                automargin: true,          
+                title: {
                 text: "FDI ($ million)",
-                standoff: 10             
+                standoff: 10            
                 }}
             }
-            
         Plotly.newPlot("plotCountry", dataCountry, layoutCountry)
-
-
     }
 )
-
-
 d3.select("reset").on("click",
     () => {
         console.log('selections reset');
         document.getElementById("level1").selectedIndex = 0;
         // filterCountryDropdown();
-        var select = document.getElementById("level2");
-        // delOptions(select);
-        while(select.firstChild){
-            select.removeChild(select.firstChild);
-        }
+        document.getElementById("level2").selectedIndex = 0;
         document.getElementById("level3").selectedIndex = 0;
-        // document.getElementById("predictions_content_box").innerHTML = "$ (million)";
-        var select_2 = document.getElementById("predictions_content_box")
-        while(select_2.firstChild){
-            select_2.removeChild(select_2.firstChild);
-        }
-
+        document.getElementById("predictions_content_box").innerHTML = "$ (million)";
         var plotDiv = document.getElementById('plotCountry');
         while(plotDiv.firstChild){
             plotDiv.removeChild(plotDiv.firstChild);
         }
-
     }
 )
-
 
 // copy/paste full_data.json
 var data = [
