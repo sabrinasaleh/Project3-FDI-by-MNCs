@@ -1,7 +1,55 @@
 var URI = "https://mnc-fdi-usa.herokuapp.com/"
 
-
-
+var region_country = {"Europe": ["Austria",
+    "Belgium",
+    "Denmark",
+    "Finland",
+    "France",
+    "Germany",
+    "Greece",
+    "Hungary",
+    "Ireland",
+    "Italy",
+    "Luxembourg",
+    "Netherlands",
+    "Norway",
+    "Portugal",
+    "Russia",
+    "Spain",
+    "Sweden",
+    "Switzerland",
+    "Turkey",
+    "United Kingdom",
+    ],
+    "Canada & Pacific": ["Australia",
+        "Canada",
+        "New Zealand",
+        ], 
+    "Asia": ["China",
+        "Hong Kong",
+        "India",
+        "Indonesia",
+        "Israel",
+        "Japan",
+        "Kuwait",
+        "Malaysia",
+        "Pakistan",
+        "Philippines",
+        "Singapore",
+        "South Korea",
+        "Thailand",
+        "United Arab Emirates",        
+        ], 
+    "Latin America": ["Argentina",
+        "Brazil",
+        "Chile",
+        "Mexico",
+        "Panama",
+        "Venezuela",                
+        ], 
+    "Africa": ["Liberia",
+        "South Africa"                       
+        ]} 
 
 var globalizationList = {"United Kingdom": 89,
 "Austria": 89,
@@ -50,7 +98,38 @@ var globalizationList = {"United Kingdom": 89,
 "Liberia": 48
 }  
 
+function insertRegions() {
+    var regionSelect = document.getElementById(“level1”);
+    for (var prop in region_country) {
+      var option = document.createElement(‘option’);
+      option.innerHTML = prop
+      option.value = prop;
+      regionSelect.append(option)
+    }
+  }
 
+  insertRegions()
+
+  function delOptions(selection) {
+    while (selection.options.length > 0) {
+      selection.remove(0);
+    }
+  }
+
+  function filterCountryDropdown() {
+    var region = document.getElementById(“level1”).value;
+    console.log(region);
+    var filter = region_country[region];
+    console.log(filter);
+    var select = document.getElementById(“level2");
+    delOptions(select)
+    for (var prop in filter) {
+      var option = document.createElement(‘option’);
+      option.innerHTML = filter[prop]
+      option.value = filter[prop];
+      select.append(option)
+    }
+  }
 
 d3.select("input").on("click",
     () => {

@@ -18,17 +18,11 @@
 
     <form action="javascript:void(0);">
        
-        <select id="level1" name="region_id">
-            <option>{{ placeholder_values['region_id'] }}</option>
-            {% for region in region_list %} 
-                <option>{{region}}</option> 
-            {% endfor %}
+        <select id="level1" onchange=“filterCountryDropdown()” name="region_id">           
         </select> 
+        
             <select id="level2" name="country_id">
-            <option>{{ placeholder_values['country_id'] }}</option>
-                {% for country in country_list %} 
-                <option>{{country}}</option> 
-            {% endfor %}
+            
             </select>
             <select id="level3" name="year"> 
                 <!-- <option>2019</option> -->
