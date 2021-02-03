@@ -227,7 +227,7 @@ d3.select("reset").on("click",
     () => {
         console.log('selections reset');
         document.getElementById("level1").selectedIndex = 0;
-        document.getElementById("level2").selectedIndex = 0;
+        filterCountryDropdown();
         document.getElementById("level3").selectedIndex = 0;
         document.getElementById("predictions_content_box").innerHTML = "$ (million)";
 
