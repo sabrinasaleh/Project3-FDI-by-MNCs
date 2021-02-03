@@ -1,3 +1,8 @@
+var URI = "https://mnc-fdi-usa.herokuapp.com/"
+
+
+
+
 var globalizationList = {"United Kingdom": 89,
 "Austria": 89,
 "Belgium": 90,
@@ -47,7 +52,6 @@ var globalizationList = {"United Kingdom": 89,
 
 
 
-
 d3.select("input").on("click",
     () => {
 
@@ -66,7 +70,7 @@ d3.select("input").on("click",
 
         console.log(globalizationList[country_id])
 
-        d3.json("http://127.0.0.1:5000/prediction", {
+        d3.json(URI + "prediction", {
             method: 'POST',
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -85,7 +89,7 @@ d3.select("input").on("click",
 
         // console.log(data_query)
 
-        d3.json("http://127.0.0.1:5000/country_data", {
+        d3.json(URI + "country_data", {
             method: 'POST',
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
