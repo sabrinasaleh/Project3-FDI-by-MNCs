@@ -131,6 +131,8 @@ function insertRegions() {
     }
   }
 
+  filterCountryDropdown()
+
 d3.select("input").on("click",
     () => {
 
