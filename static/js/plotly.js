@@ -229,10 +229,16 @@ d3.select("reset").on("click",
         document.getElementById("level1").selectedIndex = 0;
         // filterCountryDropdown();
         var select = document.getElementById("level2");
-        delOptions(select);
+        // delOptions(select);
+        while(select.firstChild){
+            select.removeChild(select.firstChild);
+        }
         document.getElementById("level3").selectedIndex = 0;
-        document.getElementById("predictions_content_box").innerHTML = "$ (million)";
-
+        // document.getElementById("predictions_content_box").innerHTML = "$ (million)";
+        var select_2 = document.getElementById("predictions_content_box")
+        while(select_2.firstChild){
+            select_2.removeChild(select_2.firstChild);
+        }
 
         var plotDiv = document.getElementById('plotCountry');
         while(plotDiv.firstChild){
