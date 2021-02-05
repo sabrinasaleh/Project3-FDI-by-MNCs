@@ -15,13 +15,21 @@
 <div class="row">
 	<div class="col-md-9">
 		<section>
-			<h6>Data Collection & Data Cleaning:</h6>
-			<p>We started with examining a timeseries data on the inward FDI to identify the major countries investing in the US. The available data suggests, in total, there are 45 countries across Europe, Canada & Pacific, Asia, Latin America, and Africa that have been consistently expanding their MNC activities in the US since 1982. The data source of FDI in USA is the Bureau of Economic Analysis (https://www.bea.gov).</p>
-			<p>Next, we began our model exploration by inquiring a set of country level variables that are researched to be influential in impacting FDI in USA. In addition to the “Year” and two categorical variables – “Country” and “Region” – we also examined countries’ (i) GDP per Capita, (ii) Stock Market Capitalization, (iii) Globalization Index Scores, (iv) FDI by USA, (v) Government Effectiveness, and (vi) Rule of Law. The data source of these country level variables is the World Bank (https://data.worldbank.org).</p> 
+			<h3>Data Collection & Data Cleaning:</h3>
+			<p>We started with examining a timeseries data on the inward FDI to identify the major countries investing in the US. The available data suggests, in total, there are 45 countries across Europe, Canada & Pacific, Asia, Latin America, and Africa that have been consistently expanding their MNC activities in the US since 1982. The data source of FDI in USA is the <a href="https://www.bea.gov" style="color:orange">Bureau of Economic Analysis</a>.</p>
+			<p>Next, we began our model exploration by inquiring a set of country level variables that are researched to be influential in impacting FDI in USA. In addition to the “Year” and two categorical variables – “Country” and “Region” – we also examined countries’ (i) GDP per Capita, (ii) Stock Market Capitalization, (iii) Globalization Index Scores, (iv) FDI by USA, (v) Government Effectiveness, and (vi) Rule of Law. The data source of these country level variables is the <a href="https://data.worldbank.org" style="color:orange">World Bank</a>.</p> 
 			<p>We performed rigorous data collection and data cleaning steps using the python and pandas to finalize a timeseries dataset of 1710 observations. </p>
 		</section>
 	
 					<br>
+
+					<section>
+						<h3>Multicollinearity Test:</h3>
+						<p>We conducted multicollinearity test among the country level variables to inquire the correlation biases. The greenish and yellowish boxes in the Correlation Matrix below depicts a presence of strong multicollinearity among the country level variables. Such findings required us to conduct additional statistical tests to exclude the less significant variables and contain the most significant ones.</p>
+						<center><img src="../static/img/model_collinearity.jpg"></center>
+					</section>
+				
+								<br>
 	
 		<section>
 		<p>In this app we will go through a series of years of foreign investment in the United States starting from 1990 to 2018. Who are the largest foreign investors in the United States? Checking lines style. In this app we will go through a series of years of foreign investment in the United States starting from 1990 to 2018.
@@ -43,7 +51,7 @@
 		<section>
 			<p>In this app we will go through a series of years of foreign investment in the United States starting from 1990 to 2018.
 				Who are the largest foreign investors in the United States? In this app we will go through a series of years of foreign investment in the United States starting from 1990 to 2018. Checking randomly how is the intend going. Who are the largest foreign investors in the United States? Who are the largest foreign investors in the United States?</p>
-				<center><img src="../static/img/model_collinearity.jpg"></center>
+				
 			</section>
 	
 			<br>
