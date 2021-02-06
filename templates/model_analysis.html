@@ -9,7 +9,7 @@
 		/* margin-right: 0in; */
 	}
 
-	/* p { text-indent: 45px; } */
+	#p2 { margin: 1; } */
 </style>
 <!-- Elements -->
 <div class="row">
@@ -32,24 +32,30 @@
 								<br>
 
 								<section>
-									<h2>Select-K-Best Test:</h2>
-									<p>Because of the correlation biases, the multicollinearity test guided us to drop two country level variables – “Stock Market Capitalization” and “Rule of Law”. The multicollinearity test also directed us to investigate two types of machine learning modeling – one with all the country level variables and the other with the individual country level variables. To examine the models with individual country level variables, it was important to for us to conduct the Select-K-Best test. The following table ranks order the individual country level variables according to their k scores.</p>
+									<h2>Select K Best Test:</h2>
+									<p>Because of the correlation biases, the multicollinearity test guided us to drop two country level variables – “Stock Market Capitalization” and “Rule of Law”. The multicollinearity test also directed us to investigate two types of machine learning modeling – one with all the country level variables and the other with the individual country level variables. To examine the models with individual country level variables, it was important to for us to conduct the Select K Best test. The following table ranks order the individual country level variables according to their k scores.</p>
 									<center><img src="../static/img/model_kbest.PNG"></center>
 								</section>
 							
 											<br>
 
 											<section>
-												<h2>List of Potential Models:</h2>
+												<h2>Potential ML Models:</h2>
 												<p>Based on the results of our statistical tests, we decided to examine four potential models – (i) a model with FDI by USA, (ii) a model with GDP per Capita, (iii) a model with Globalization Index, and (iv) a model with all three variables (FDI by USA, GDP per Capita, and Globalization Index). For each of these four models, we tested a series of Linear Regressions, Regressions with Interactions, Lasso Regressions, Decision Tree, and Random Forest. Our findings suggest that the “Random Forest with Globalization Index” is the best machine learning model to predict FDI in USA. According to the K-Fold Cross-Validation, the mean square error is the smallest for this model. For generic validation, the Ordinary Least Square (OLS) results suggest that the coefficient is meaningfully and significantly interpretable for the “Globalization Index” – “for each unit increase in countries’ Globalization Index, their FDI in USA increases by $691.99 million”. Also the P-Value and F-Statistic of the OLS test rejected the null model and provided support for the Globalization Index model as a good model.</p>
 												<center><img src="../static/img/model_ols.PNG"></center>
 											</section>
 
 
 											<section>
-												<h2>Final ML Model:</h2>
-												<p>Based on the results of our statistical tests, we decided to examine four potential models – (i) a model with FDI by USA, (ii) a model with GDP per Capita, (iii) a model with Globalization Index, and (iv) a model with all three variables (FDI by USA, GDP per Capita, and Globalization Index). For each of these four models, we tested a series of Linear Regressions, Regressions with Interactions, Lasso Regressions, Decision Tree, and Random Forest. Our findings suggest that the “Random Forest with Globalization Index” is the best machine learning model to predict FDI in USA. According to the K-Fold Cross-Validation, the mean square error is the smallest for this model. For generic validation, the Ordinary Least Square (OLS) results suggest that the coefficient is meaningfully and significantly interpretable for the “Globalization Index” – “for each unit increase in countries’ Globalization Index, their FDI in USA increases by $691.99 million”. Also the P-Value and F-Statistic of the OLS test rejected the null model and provided support for the Globalization Index model as a good model.</p>
-												<center><img src="../static/img/model_ols.PNG"></center>
+												<h2>Final ML Model (Random Forest with Globalization Index):</h2>
+												<p>Guided by all the statistical analyses, finally we selected the “Random Forest with Globalization Index” as our machine learning model to predict FDI in USA. For the users’ convenience, we are providing following information on our final model’s features:</p>
+												<p>Predicted Variable: FDI in USA</p>
+												<p id = 'p2'>Measure: Total Stocks of FDI by Countries in USA ($ million)</p>
+												<p id = 'p2'>Data Source: <a href="https://www.bea.gov" style="color:orange">Bureau of Economic Analysis</a></p> 
+
+												<p>Predictor Variable 1: Region</p>
+												<p id = 'p2'>Measure: Dummy Variable for Region</p>
+												<p id = 'p2'>Data Source: <a href="https://data.worldbank.org" style="color:orange">World Bank</a></p> 
 											</section>
 										
 														<br>
