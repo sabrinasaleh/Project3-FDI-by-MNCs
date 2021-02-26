@@ -135,7 +135,7 @@ function insertRegions() {
     }
   }
   filterCountryDropdown()
-d3.select("#submit-button").on("click",
+d3.select("input").on("click",
     () => {
         region_id = d3.select("#level1").property("value")
         country_id = d3.select("#level2").property("value")
@@ -206,7 +206,7 @@ d3.select("#submit-button").on("click",
         Plotly.newPlot("plotCountry", dataCountry, layoutCountry)
     }
 )
-d3.select("#reset-filter").on("click",
+d3.select("reset").on("click",
     () => {
         console.log('selections reset');
         document.getElementById("level1").selectedIndex = 0;
@@ -214,7 +214,7 @@ d3.select("#reset-filter").on("click",
         document.getElementById("level2").selectedIndex = 0;
         document.getElementById("level3").selectedIndex = 0;
         document.getElementById("predictions_content_box").innerHTML = "$ (million)";
-        var plotDiv = document.getElementById("plotCountryReset");
+        var plotDiv = document.getElementById("plotCountry");
         while(plotDiv.firstChild){
             plotDiv.removeChild(plotDiv.firstChild);
         }
