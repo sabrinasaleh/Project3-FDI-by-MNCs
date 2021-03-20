@@ -27,7 +27,7 @@ We started with examining a timeseries data on the inward FDI to identify the ma
 
 ## Predicting FDI by MNCs
 Guided by all the statistical analyses, finally we selected the “Random Forest with Globalization Index” as our machine learning model to predict FDI in USA. For the users’ convenience, our app provided the following information:
-* Predicted Variable: FDI in USA. Measure: Total stocks of investment by country specific foreign MNCs in USA (million). Data Source: Bureau of Economic Analysis.
+* Predicted Variable: FDI in USA. Measure: Total stocks of investment by country specific foreign MNCs in USA. Data Source: Bureau of Economic Analysis.
 * Predictor Variable 1: Region. Measure: Dummy Variable for Region. Data Source: World Bank.
 * Predictor Variable 2: Country. Measure: Dummy Variable for Country. Data Source: World Bank.
 * Predictor Variable 3: Year. Measure: 1982-2018. Data Source: World Bank.
