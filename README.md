@@ -12,6 +12,7 @@ Foreign owned Multinational Corporations (MNCs) are one of the major contributor
 * The users can compare the predicted value of FDI with the real value of FDI, which will be documented in the interactive plot's recent year visualization.
 
 ##### **Home Page:**
+![screen-1](AppShots/screen_home.PNG)
 
 
 ## Machine Learning Modeling
@@ -22,7 +23,9 @@ We started with examining a timeseries data on the inward FDI to identify the ma
 * Also the P-Value and F-Statistic of the OLS test rejected the null model and provided support for the Globalization Index model as a good model.
 
 ##### **Model Analyses Page (i):**
+![screen-2](AppShots/screen_model_i.PNG)
 ##### **Model Analyses Page (ii):**
+![screen-3](AppShots/screen_model_ii.PNG)
 
 
 ## Predicting FDI by MNCs
@@ -34,7 +37,9 @@ Guided by all the statistical analyses, finally we selected the “Random Forest
 * Predictor Variable 4: Globalization Index Score. Measure: A cumulative index of countries’ economic, trade, scientific, and social globalization. Data Source: World Bank, https://data.worldbank.org.
 
 ##### **FDI Predictions Page (i):**
+![screen-4](AppShots/screen_prediction_i.PNG)
 ##### **FDI Predictions Page (ii):**
+![screen-5](AppShots/screen_prediction_ii.PNG)
 
 
 ## Machine Learning App Insights
@@ -42,7 +47,10 @@ Guided by all the statistical analyses, finally we selected the “Random Forest
 * The app presents the ranking of top regions by their average investment in USA. Canada & Pacific and Europe have been the leading regions for the FDI by their MNCs. However, it is important to point out that overtime with the increase in Globalization Index scores, many countries from Asia, Latin America, and Africa are emerging as key players in FDI and thereby, expanding their MNC activites in USA.
 * The app also presents the ranking of top 25 countries by their average investment in USA. In line with the above discussed analysis, majority of the top 25 countries belong to the European (UK, Netherlands, Germany, France, Switzerland, Luxembourg, Ireland, Belgium, Sweden, Spain, Hungary, Italy, Norway, Denmark, and Finland) and Canada & Pacific (Canada and Australia) regions. However, a growing number of countries from the Asian (Japan, South Korea, Singapore, China, Israel, and Hong Kong) and Latin American (Mexico and Panama) regions are emerging as influential investors and owners of foreign MNCs in USA.
 
-##### **Insights Page:**
+##### **Insights Page: Global Map of FDI by MNCs (1982)**
+![screen-6](AppShots/screen_map_i.PNG)
+##### **Insights Page: Global Map of FDI by MNCs (2018)**
+![screen-6](AppShots/screen_map_ii.PNG)
 
 
 ## Applied Technologies:
